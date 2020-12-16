@@ -1,0 +1,133 @@
+@page
+@model Example3Model
+@{
+	ViewBag.Layout = 3;
+
+	if (Model._getPayment)
+	{
+		ViewData["PageTitle"] = "Checkout";
+		ViewData["TableTitle"] = "Your new domain names";
+		ViewData["TableID"] = "order-item-table";
+	}
+	else if (Model._getConfirmation)
+	{
+		ViewData["PageTitle"] = "Confirm and Complete Order";
+		ViewData["TableTitle"] = "Order Summary";
+		ViewData["TableID"] = "summary-table";
+	}
+	else
+	{
+		ViewData["PageTitle"] = ViewData["Result"];
+		ViewData["TableTitle"] = "Order Summary";
+		ViewData["TableID"] = "summary-table";
+	}
+}
+
+<header>
+	<h1>@ViewData["PageTitle"]</h1>
+</header>
+<main>
+	<div id="order-info">
+		<h2>@ViewData["TableTitle"]</h2>
+		<table id="@ViewData["TableID"]">
+			<thead>
+				<tr>
+					<th>Domain Name</th>
+					<th>Registration Period</th>
+					<th class="price-column">Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>businessname.com</td>
+					<td>1 year</td>
+					<td class="price-column">$59.99</td>
+				</tr>
+				<tr>
+					<td>businessname.net</td>
+					<td>1 year</td>
+					<td class="price-column">$19.99</td>
+				</tr>
+				<tr>
+					<td>businessname.biz</td>
+					<td>1 year</td>
+					<td class="price-column"><span>Special!</span>$9.99</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th colspan="3">
+						<span>Subtotal: 89.97</span>
+						<span>Tax: 6.30</span>
+						<span id="order-total-amount">Total: $96.27</span>
+					</th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	@if (Model._getPayment)
+	{
+		<div id="payment-info">
+			<form id="customer-data-form" method="POST" asp-page-handler="Payment">
+				<label>
+					<span>Name</span>
+					<input type="text" name="name" />
+				</label>
+				<label>
+					<span>Email</span>
+					<input type="email" name="email" />
+				</label>
+				<label>
+					<span>Address</span>
+					<input type="text" name="street" />
+				</label>
+				<label id="city-label">
+					<span>City</span>
+					<input type="text" name="city" />
+				</label>
+				<label id="state-label">
+					<span>State</span>
+					<input type="text" name="state" />
+				</label>
+				<label id="zip-label">
+					<span>Zip</span>
+					<input required type="text" name="zip" />
+				</label>
+				<input type="hidden" name="tax" value="6.30" />
+				<input type="hidden" name="amount" value="96.27" />
+			</form>
+			<div id="iframe-container">
+				@ViewData["PaymentFrame"]
+			</div>
+		</div>
+	}
+	else if (Model._getConfirmation)
+	{
+		<div id="confirmation-info">
+			<h2>Payment Summary</h2>
+			<p>
+				@ViewData["TxnName"]
+				<br />
+				@ViewData["TxnEmail"]
+				<br />
+				@ViewData["TxnStreet"]
+				<br />
+				@ViewData["TxnCityStateZip"]
+				<br />
+				<div class="card-confirmation">
+					<img class="confirmation-card-icon" alt="@ViewData["CardType"]" src="@ViewData["CardSrc"]">
+				</div>
+			</p>
+		</div>
+		<form id="complete-order-form" method="POST">
+			<button type="submit" id="complete-order-button" asp-page-handler="Confirmation">Complete Order</button>
+		</form>
+	}
+	else
+	{
+		<div id="confirmation-info">
+			@ViewData["Receipt"]
+		</div>
+	}
+	<div id="error-message" class="hidden"></div>
+</main>

@@ -1,0 +1,106 @@
+﻿@using Microsoft.Extensions.Options;
+@using TicketApp.Models;
+@inject IOptions<ServerConfig> PaymentServerConfig;
+
+@{
+	ViewData["Title"] = "TranSafe PaymentFrame Demo";
+	ViewData["HostCSS"] = "host-" + ViewBag.Layout + ".css";
+	ViewData["ReceiptCSS"] = "receipt-" + ViewBag.Layout + ".css";
+	switch (ViewBag.Layout) {
+		case 1:
+			ViewData["Font"] = "Roboto+Slab";
+			break;
+		case 2:
+			ViewData["Font"] = "PT+Sans+Narrow:400,700";
+			break;
+		case 3:
+			ViewData["Font"] = "Roboto:400,700";
+			break;
+	}
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+	<link href="https://fonts.googleapis.com/css?family=@ViewData["Font"]&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="~/css/site.css" />
+	<link rel="stylesheet" type="text/css" href="~/css/@ViewData["HostCSS"]" />
+	<link rel="stylesheet" type="text/css" href="~/css/@ViewData["ReceiptCSS"]" />
+</head>
+<body>
+	<script>0</script>
+	<div id="style-switch">
+		<span>@ViewData["Title"]</span>
+		<button id="info-modal-open">Test Card Information</button>
+		<div id="style-links">
+			<a asp-area="" asp-page="/Example1">Example 1</a>
+			<a asp-area="" asp-page="/Example2">Example 2</a>
+			<a asp-area="" asp-page="/Example3">Example 3</a>
+		</div>
+	</div>
+	@RenderBody()
+	<div id="info-modal-container" class="modal-container hidden">
+		<div class="modal-overlay"></div>
+		<div id="info-modal" class="modal">
+			<h3>Test Card Information</h3>
+			<p>
+				You can use the credit card details below to complete this test transaction.
+			</p>
+			<ul class="test-card-list">
+				<li>
+					<img alt="Visa" src="~/images/card-logos/visa.svg" />
+					<div>
+						<span class="test-card-number">4111 1111 1111 1111</span>
+						<span class="test-card-details">
+							<span><b>CV:</b> 999</span>
+							<span><b>ZIP:</b> 32606</span>
+						</span>
+					</div>
+				</li>
+				<li>
+					<img alt="Mastercard" src="~/images/card-logos/mc.svg" />
+					<div>
+						<span class="test-card-number">5454 5454 5454 5454</span>
+						<span class="test-card-details">
+							<span><b>CV:</b> 999</span>
+							<span><b>ZIP:</b> 32606</span>
+						</span>
+					</div>
+				</li>
+				<li>
+					<img alt="Discover" src="~/images/card-logos/disc.svg" />
+					<div>
+						<span class="test-card-number">6011 0009 9550 0000</span>
+						<span class="test-card-details">
+							<span><b>CV:</b> 999</span>
+							<span><b>ZIP:</b> 32606</span>
+						</span>
+					</div>
+				</li>
+				<li>
+					<img alt="American Express" src="~/images/card-logos/amex.svg" />
+					<div>
+						<span class="test-card-number">3714 496353 98431</span>
+						<span class="test-card-details">
+							<span><b>CV:</b> 1234</span>
+							<span><b>ZIP:</b> 32606</span>
+						</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<script>
+		var paymentServerHost = "@PaymentServerConfig.Value.Host";
+		var paymentServerPort = "@PaymentServerConfig.Value.Port";
+	</script>
+	<script src="@PaymentServerConfig.Value.Host:@PaymentServerConfig.Value.Port/PaymentFrame/PaymentFrame.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+
+	@RenderSection("Scripts", required: false)
+</body>
+</html>
