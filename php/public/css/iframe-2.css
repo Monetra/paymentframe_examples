@@ -1,0 +1,89 @@
+#monetra-payment-form {
+	font-family: sans-serif;
+}
+form {
+	grid-gap: .7rem;
+	padding: 0;
+}
+label {
+	border-radius: 0;
+	border: none;
+	border-top: none;
+}
+.payment-form-label span svg {
+	display: none;
+}
+.payment-form-label {
+	flex-direction: column;
+	align-items: stretch;
+	padding: 0;
+}
+.payment-form-label span {
+	order: -1;
+	display: block;
+	flex-basis: auto;
+	font-size: .8rem;
+	color: #4f3b24;
+	font-weight: bold;
+	padding: .25rem;
+	width: 100%;
+}
+#payment-expmonth-label span:before {
+	content: 'Exp. Month';
+}
+#payment-expyear-label span:before {
+	content: 'Exp. Year';
+}
+#payment-account-label span:before {
+	content: 'Card Number';
+}
+#payment-expdate-label span:before {
+	content: 'Exp. Date';
+}
+#payment-cv-label span:before {
+	content: 'CV';
+}
+label input, label select {
+	padding: .8rem .5rem;
+	font-size: .9rem;
+	flex-grow: 1;
+	border: 1px solid #CCC;
+	border-radius: 4px;
+	width: 100%;
+}
+
+#payment-submit-button {
+	margin-top: 2rem;
+	background-color: #476646;
+	color: transparent;
+	font-size: 1.3rem;
+	grid-column: auto / span 2;
+	padding: 1rem;
+	text-align: left;
+	font-family: 'PT Sans Narrow', sans-serif;
+}
+#payment-submit-button:before {
+	color: #FCFCFC;
+	content: 'Pay $15.45';
+}
+#payment-account-label {
+	order: -2;
+	grid-column: auto / span 3;
+}
+#payment-cv-label {
+	order: -1;
+	grid-column: auto / span 1;
+	align-self: start;
+}
+#payment-zip-label span:before {
+	content: "Zip Code";
+}
+#payment-zip-label {
+	grid-column: auto / span 2;
+}
+#payment-expmonth-label {
+	grid-column: auto / span 1;
+}
+#payment-expyear-label {
+	grid-column: auto / span 1;
+}

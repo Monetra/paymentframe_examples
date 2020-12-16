@@ -1,0 +1,36 @@
+.card-confirmation {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	margin: .5rem 0;
+}
+.confirmation-card-icon {
+	width: 45px;
+	margin-right: .75rem;
+}
+#summary {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: 2rem;
+}
+#order-info {
+	margin-right: 4rem;
+}
+#order-item-table {
+	width: 30rem;
+}
+#complete-order-button {
+	background-color: #4a29ce;
+	color: #FCFCFC;
+	font-size: 1.2rem;
+	padding: 1.5rem;
+}
+#confirmation-info {
+	line-height: 1.4rem;
+}
+table tbody td {
+	font-size: .9rem;
+}
