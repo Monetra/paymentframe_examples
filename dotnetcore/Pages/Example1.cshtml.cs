@@ -26,10 +26,12 @@ namespace TicketApp.Pages
 
         public void OnGet()
         {
+			var uri = HttpContext.Request.Host;
+			var css = "https://" + uri.Host + ":" + uri.Port + "/css/iframe-1.css";
+
 			// Generate the HTML for our payment frame.
 			var paymentFrame = new PaymentFrame(HttpContext, _serverConfig.Value.Username, _serverConfig.Value.Password);
-			var uri = HttpContext.Request.Host;
-			paymentFrame.SetCssUrl("https://" + uri.Host + ":" + uri.Port + "/css/iframe-1.css");
+			paymentFrame.SetCssUrl(css);
 			paymentFrame.IncludeCardholder(false);
 			paymentFrame.IncludeStreet(false);
 			paymentFrame.IncludeZip(false);
