@@ -1,7 +1,7 @@
 {
 	"PaymentServerConfig": {
 		"Host": "https://test.transafe.com",
-		"Port": "8665",
+		"Port": "443",
 		"Username": "test_ecomm:public",
 		"Password": "publ1ct3st"
 	}
