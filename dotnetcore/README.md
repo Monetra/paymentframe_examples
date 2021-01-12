@@ -23,8 +23,8 @@ To run these examples, you need to have the .NET Core SDK installed. Instruction
 ```
 	dotnet run
 ```
-1. The SDK will spin up an engine that serves files on the port(s) specified in Properties/launchSettings.json. By convention (and default), this is port 5001.
-1. You can then browse to https://localhost:5001 in a web browser to interact with the example pages.
+2. The SDK will spin up an engine that serves files on the port(s) specified in Properties/launchSettings.json. By convention (and default), this is port 5001.
+3. You can then browse to https://localhost:5001 in a web browser to interact with the example pages.
 
 
 ## Configuration
