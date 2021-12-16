@@ -1,0 +1,118 @@
+#receipt-container {
+	font-family: 'Roboto', serif;
+	padding: 1rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	position: relative;
+}
+#rcpt_reference {
+	font-size: .9rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+#rcpt_merch_info, #rcpt_reference, #rcpt_money {
+	padding: 1rem;
+	margin: 1rem;
+	background-color: #F8F8F8;
+	border: 1px solid #E9E9E9;
+}
+#rcpt_merch_info {
+	font-size: 1rem;
+}
+#rcpt_merch_info .rcpt_val {
+	margin-bottom: .4rem;
+}
+#rcpt_money {
+	background-color: #56697a;
+	color: #FCFCFC;
+}
+#rcpt_money .rcpt_group { 
+	margin-bottom: .4rem;
+}
+#rcpt_merch_info, #rcpt_reference {
+	grid-column: auto / span 2;
+}
+#rcpt_merch_info:before, #rcpt_reference:before {
+	font-weight: bold;
+	display: block;
+	font-size: 1rem;
+	margin-bottom: .75rem;
+	padding: .4rem 0;
+}
+#rcpt_merch_info:before {
+	content: "Store Information:";
+	background-color: #56697a;
+	color: #FCFCFC;
+}
+#rcpt_reference:before {
+	content: "Transaction Details:";
+	grid-column: auto / span 3;
+	order: -4;
+	background-color: #56697a;
+	color: #FCFCFC;
+}
+#rcpt_reference .rcpt_group {
+	display: flex;
+	justify-content: space-between;
+	padding: .25rem;
+	grid-column: auto / span 3;
+}
+#rcpt_reference .rcpt_val {
+	margin-bottom: .5rem;
+}
+#rcpt_reference .rcpt_group:nth-child(even) {
+	background-color: #E9E9E9;
+}
+#action, #auth_result {
+	text-transform: uppercase;
+}
+#action {
+	order: -3;
+}
+#cardtype {
+	order: -2;
+	text-align: center;
+}
+#entry_mode {
+	order: -1;
+	text-align: right;
+}
+#entry_mode:before {
+	content: "Entry Mode: ";
+}
+
+#rcpt_money {
+	grid-column: auto / span 2;
+	text-align: right;
+}
+#totalamount_group {
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+#rcpt_disposition {
+	grid-column: auto / span 2;
+	text-align: center;
+	margin: 1rem;
+	padding: 1rem;
+	margin-top: 0;
+	padding-top: 0;
+}
+#auth_result {
+	font-weight: 700;
+	font-size: 1.2rem;
+}
+#rcpt_signature, #rcpt_notice {
+	grid-column: auto / span 2;
+	text-align: center;
+	color: #777;
+}
+#rcpt_merch_info, #rcpt_reference {
+	grid-column: auto / span 2;
+}
+#rcpt_merch_info:before, #rcpt_reference:before {
+	text-align: center;
+}
+#rcpt_merch_info {
+	text-align: center;
+}

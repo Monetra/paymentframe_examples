@@ -1,0 +1,50 @@
+#monetra-payment-form {
+	font-family: sans-serif;
+}
+form {
+	grid-gap: 0;
+}
+label {
+	border-radius: 0;
+	border: 1px solid #EDEDED;
+	border-top: none;
+	background-color: #FFFFFF;
+}
+#payment-account-label {
+	border-top: 1px solid #EDEDED;
+}
+.payment-form-label span svg {
+	display: none;
+}
+.payment-form-label span {
+	order: -1;
+	display: inline;
+	flex-basis: auto;
+	font-size: .9rem;
+	color: #888;
+	padding: .8rem .5rem;
+}
+#payment-expdate-label {
+	border-right: none;
+}
+#payment-account-label span:before {
+	content: 'Card Number';
+}
+#payment-expdate-label span:before {
+	content: 'Exp. Date';
+}
+#payment-cv-label span:before {
+	content: 'CV';
+}
+label input {
+	padding: .8rem .5rem;
+	font-size: .9rem;
+	flex-grow: 1;
+}
+#payment-submit-button {
+	margin-top: 2rem;
+	background-color: #444;
+	color: #FCFCFC;
+	font-size: .9rem;
+	grid-column: auto / span 1;
+}
