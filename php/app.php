@@ -1,11 +1,11 @@
 <?php
 
-define("MONETRA_HOST",     "test.transafe.com");
-define("MONETRA_PORT",     "8665");
-define('MONETRA_USER',     "test_ecomm:public");
-define('MONETRA_PASSWORD', "publ1ct3st");
-define('HOST_DOMAIN',      "https://" . $_SERVER['HTTP_HOST']);
-define('HOST_BASE_PATH',   "/");
+define("MONETRA_HOST",          "test.transafe.com");
+define("MONETRA_PORT",          "8665");
+define('MONETRA_APIKEY_ID',     "P004EB1C1832603A3");
+define('MONETRA_APIKEY_SECRET', "NrdJ0flyV89pcoSueUt/QGsoAo1hY1xE6xDO6/h7aWY=");
+define('HOST_DOMAIN',           "https://" . $_SERVER['HTTP_HOST']);
+define('HOST_BASE_PATH',        "/");
 
 handleRequest("GET", "clothes", function() {
 
@@ -13,7 +13,7 @@ handleRequest("GET", "clothes", function() {
 		"hmac-timestamp"              => time(),
 		"hmac-domain"                 => HOST_DOMAIN,
 		"hmac-sequence"               => uniqid(),
-		"hmac-username"               => MONETRA_USER,
+		"hmac-auth_apikey_id"         => MONETRA_APIKEY_ID,
 		"hmac-css-url"                => HOST_DOMAIN . HOST_BASE_PATH . 'storefronts/clothes/css/iframe.css',
 		"hmac-include-cardholdername" => "no",
 		"hmac-include-street"         => "no",
@@ -35,7 +35,7 @@ handleRequest("GET", "breakfast", function() {
 		"hmac-timestamp"              => time(),
 		"hmac-domain"                 => HOST_DOMAIN,
 		"hmac-sequence"               => uniqid(),
-		"hmac-username"               => MONETRA_USER,
+		"hmac-auth_apikey_id"         => MONETRA_APIKEY_ID,
 		"hmac-css-url"                => HOST_DOMAIN . HOST_BASE_PATH . 'storefronts/breakfast/css/iframe.css',
 		"hmac-include-cardholdername" => "no",
 		"hmac-include-street"         => "no",
@@ -58,7 +58,7 @@ handleRequest("GET", "books", function() {
 		"hmac-timestamp"              => time(),
 		"hmac-domain"                 => HOST_DOMAIN,
 		"hmac-sequence"               => uniqid(),
-		"hmac-username"               => MONETRA_USER,
+		"hmac-auth_apikey_id"         => MONETRA_APIKEY_ID,
 		"hmac-css-url"                => HOST_DOMAIN . HOST_BASE_PATH . 'storefronts/books/css/iframe.css',
 		"hmac-include-cardholdername" => "no",
 		"hmac-include-street"         => "no",
@@ -138,7 +138,7 @@ function generateHmac($hmac_fields) {
 
 	$data_to_hash = implode("", $hmac_fields);
 
-	$hmac = hash_hmac('sha256', $data_to_hash, MONETRA_PASSWORD);
+	$hmac = hash_hmac('sha256', $data_to_hash, MONETRA_APIKEY_SECRET);
 
 	return $hmac;
 }
@@ -156,12 +156,11 @@ function assembleIframeAttributes($hmac, $hmac_fields) {
 
 function sendRequestToPaymentServer($url, $request_data) {
 
-	$username = str_replace(':', '|', MONETRA_USER);
-
 	$request_body = json_encode($request_data);
 
 	$headers = [
-		"Authorization: Basic " . base64_encode($username . ':' . MONETRA_PASSWORD),
+		"X-API-KEY-ID: " . MONETRA_APIKEY_ID,
+		"X-API-KEY: " . MONETRA_APIKEY_SECRET,
 		"Content-Type: application/json",
 		"Content-Length: " . strlen($request_body)
 	];
