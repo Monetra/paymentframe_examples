@@ -35,7 +35,12 @@ paymentFrame.setPaymentSubmittedCallback(function(response) {
 	}
 });
 
+paymentFrame.setFormSubmissionInvalidCallback(function() {
+	externalSubmitButton.disabled = false;
+});
+
 externalSubmitButton.addEventListener("click", function() {
+	externalSubmitButton.disabled = true;
 	paymentFrame.submitPaymentData();
 });
 

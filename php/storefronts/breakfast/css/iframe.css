@@ -60,9 +60,7 @@ label input, label select {
 	grid-column: auto / span 1;
 	align-self: start;
 }
-#payment-zip-label span:before {
-	content: "Zip Code";
-}
+
 #payment-zip-label {
 	grid-column: auto / span 2;
 }
@@ -71,4 +69,9 @@ label input, label select {
 }
 #payment-expyear-label {
 	grid-column: auto / span 1;
+}
+@media (max-width: 1000px) {
+	#payment-expmonth-label, #payment-expyear-label {
+		grid-column: auto / span 2;
+	}
 }

@@ -24,7 +24,7 @@ label {
 	padding-right: 1rem;
 	font-size: .8rem;
 	color: #56697a;
-	min-width: 7rem;
+	min-width: 6rem;
 	width: 100%;
 	text-align: right;
 }
@@ -60,4 +60,9 @@ label input, label select {
 }
 #payment-cardholdername-label {
 	order: -2;
+}
+@media (max-width: 1000px) {
+	.payment-form-label span {
+		min-width: 4rem;
+	}
 }

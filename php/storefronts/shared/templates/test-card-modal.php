@@ -1,6 +1,7 @@
 <div id="info-modal-container" class="modal-container hidden">
 	<div class="modal-overlay">
 		<div id="info-modal" class="modal">
+			<a id="info-modal-close">&#10005;</a>
 			<h3>Test Card Information</h3>
 			<p>
 				You can use the credit card details below to complete this test transaction.
@@ -47,6 +48,10 @@
 					</div>
 				</li>
 			</ul>
+			<p>
+				3DSecure test cards can be found 
+				<a target="_blank" href="https://docs.3dsintegrator.com/docs/test-cards">here</a>.
+			</p>
 		</div>
 	</div>
 </div>

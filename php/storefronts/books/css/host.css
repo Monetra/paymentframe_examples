@@ -149,23 +149,6 @@ button {
 	border: none;
 	cursor: pointer;
 }
-@media (max-width: 1000px) {
-	main {
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: center;
-		width: 90%;
-	}
-	#payment-info {
-		margin-left: 0;
-	}
-	#order-total-price {
-		text-align: center;
-	}
-	#payment-info>div {
-		flex-direction: column;
-	}
-}
 #external-submit-button, #complete-order-button {
 	margin-top: 2rem;
 	background-color: #56697a;
@@ -198,4 +181,42 @@ button {
 .payment-summary .summary-value {
 	margin-bottom: 1rem;
 	display: block;
+}
+@media (max-width: 1000px) {
+	main {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		width: 90%;
+		padding: 1rem;
+	}
+	header {
+		background-size: 150%;
+	}
+	h1 {
+		padding: 1.5rem;
+	}
+	#iframe-container {
+		width: 90%;
+	}
+	#payment-info {
+		margin: 0;
+		padding: 0;
+	}
+	#order-info {
+		margin: 0;
+		padding: 0;
+	}
+	#summary {
+		padding: 0 1rem;
+	}
+	#order-total-price {
+		text-align: center;
+	}
+	#payment-info>div {
+		flex-direction: column;
+	}
+	#customer-data-form label span {
+		min-width: 4rem;
+	}
 }

@@ -18,16 +18,16 @@ header {
 	background-color: #FCFCFC;
 }
 h1, h2 {
-	color: #ff5252;
-	font-family: 'Roboto Slab', sans-serif;
+	color: #819c88;
+	font-family: 'Lora', sans-serif;
 	font-weight: 400;
 }
 h1 {
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 	text-align: center;
 }
 h2 {
-	font-size: 1rem;
+	font-size: 1.2rem;
 	padding: .5rem;
 }
 main {
@@ -48,7 +48,6 @@ main {
 }
 #order-item-list {
 	list-style-type: none;
-	border: 1px dashed #CCC;
 }
 #order-item-list li {
 	display: flex;
@@ -56,10 +55,9 @@ main {
 	align-items: center;
 	justify-content: space-between;
 	padding: 1.5rem;
-	border-bottom: 1px dashed #CCC;
-}
-#order-item-list li:last-child {
-	border-bottom: none;
+	padding-left: .5rem;
+	padding-right: 0;
+	border-bottom: 1px solid #DEDEDE;
 }
 #order-item-list li>div {
 	display: flex;
@@ -86,12 +84,12 @@ main {
 }
 #order-item-list span.total-price {
 	font-weight: bold;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	margin-left: 1rem;
+	color: #555;
 }
 #order-item-list img {
-	border: 1px solid #CCC;
-	margin-right: 1rem;
+	margin-right: 1.5rem;
 }
 .order-amounts {
 	margin-top: .7rem;
@@ -103,19 +101,22 @@ main {
 	text-align: right;
 	display: block;
 	padding: .4rem 0;
+	color: #555;
 }
 #order-total-price {
-	font-size: 1.1rem;
+	font-size: 1.2rem;
+	color: #333;
+	margin-top: .75rem;
 }
 form {
 	padding: .5rem;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 	grid-template-rows: auto;
 	grid-gap: 0;
 }
 form label {
-	grid-column: auto / span 4;
+	grid-column: auto / span 12;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -124,13 +125,13 @@ form label {
 	border-bottom: none;
 	background-color: #FFFFFF;
 }
-#state-label {
-	grid-column: auto / span 2;
+#state-label, #zip-label {
+	grid-column: auto / span 4;
 	border-bottom: 1px solid #EDEDED;
 	border-right: none;
 }
-#zip-label {
-	grid-column: auto / span 2;
+#country-label {
+	grid-column: auto / span 4;
 	border-bottom: 1px solid #EDEDED;
 }
 form label span {
@@ -152,6 +153,32 @@ button {
 	border: none;
 	cursor: pointer;
 }
+#submit-button-container {
+	position: relative;
+	margin: .5rem;
+}
+#submit-button {
+	margin: 0;
+	border-radius: 4px;
+	display: block;
+	padding: 1rem 2rem;
+	background-color: #819c88;
+	color: #FFF;
+	font-family: 'Lora', sans-serif;
+	font-size: 1.2rem;
+	width: 100%;
+	transition: background-color .25s;
+}
+#submit-button:hover {
+	background-color: #4f6354;
+}
+#submit-button:disabled {
+	background-color: #b1c4b6;
+	cursor: default;
+}
+#submit-button:disabled:hover {
+	background-color: #b1c4b6;
+}
 @media (max-width: 1000px) {
 	main {
 		flex-direction: column;
@@ -168,8 +195,8 @@ button {
 	#order-info {
 		margin: 0 1rem;
 	}
-	#state-label, #zip-label {
-		grid-column: auto / span 4;
+	#state-label, #zip-label, #country-label {
+		grid-column: auto / span 12;
 	}
 	#state-label {
 		border-right: 1px solid #EDEDED;

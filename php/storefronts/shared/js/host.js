@@ -1,13 +1,18 @@
 var receiptModalContainer = document.getElementById("receipt-modal-container");
 var receiptModal = document.getElementById("receipt-modal");
 var receiptContainer = document.getElementById("receipt-container");
+var receiptModalClose = document.getElementById("receipt-modal-close");
 var infoModalContainer = document.getElementById("info-modal-container");
+var infoModalClose = document.getElementById("info-modal-close");
 var infoModal = document.getElementById("info-modal");
 var infoModalOpen = document.getElementById("info-modal-open");
 var iframeElement = document.getElementById("iframe");
 var contentContainer = document.getElementById("content-container");
 
 infoModalContainer.addEventListener('click', function(e) {
+	infoModalContainer.classList.add('hidden');
+});
+infoModalClose.addEventListener('click', function(e) {
 	infoModalContainer.classList.add('hidden');
 });
 infoModal.addEventListener('click', function(e) {
@@ -18,6 +23,10 @@ infoModalOpen.addEventListener('click', function(e) {
 });
 
 receiptModalContainer.addEventListener('click', function(e) {
+	receiptModalContainer.classList.add('hidden');
+	contentContainer.classList.remove('obscured');
+});
+receiptModalClose.addEventListener('click', function(e) {
 	receiptModalContainer.classList.add('hidden');
 	contentContainer.classList.remove('obscured');
 });

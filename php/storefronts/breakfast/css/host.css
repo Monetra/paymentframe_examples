@@ -171,16 +171,25 @@ button {
 	font-family: 'PT Sans Narrow', sans-serif;
 	border-radius: 4px;
 }
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
 	main {
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: center;
 	}
+	#order-info {
+		order: 1;
+		margin: 0 1rem;
+	}
 	#payment-info {
-		margin-left: 0;
+		order: 2;
+		margin: 0;
+		padding: 0;
 	}
 	#order-total-price {
 		text-align: center;
+	}
+	h1 {
+		padding: 6rem 0;
 	}
 }

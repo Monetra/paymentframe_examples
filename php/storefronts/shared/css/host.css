@@ -146,3 +146,44 @@ form input:focus, form select:focus {
 #info-modal p {
 	margin: 1.5rem 0;
 }
+#info-modal p a {
+	text-decoration: none;
+	border-bottom: 1px solid #1d5688;
+	color: #1d5688;
+}
+#info-modal-close, #receipt-modal-close {
+	float: right;
+	margin-right: -1rem;
+	margin-top: -1rem;
+	padding: .5rem;
+	cursor: pointer;
+}
+@media screen and (max-width: 1000px) {
+	#style-switch {
+		flex-direction: column;
+		justify-content: center;
+		height: 4.5rem;
+	}
+	header {
+		margin-top: 4.5rem;
+	}
+	#style-links {
+		margin-top: .5rem;
+	}
+	#style-links a {
+		font-size: .8rem;
+	}
+	#info-modal-open {
+		padding: .15rem .3rem;
+	}
+	.modal {
+		top: 5rem;
+		left: 10%;
+		transform: translateX(-5%);
+		padding: 1rem;
+		background-color: #FFF;
+	}
+	.test-card-list li .test-card-number {
+		font-size: .9rem;
+	}
+}
